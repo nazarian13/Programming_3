@@ -1,11 +1,8 @@
-class GrassEater {
-    constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
+class GrassEater extends LivingCreature {
+    constructor(x, y, index){
+        super(x, y, index);
+        this.tariq = 0;
         this.energy = 8;
-        this.index = index;
-        this.directions = [];
-        this.acted = false;
     }
     getNewCoordinates() {
         this.directions = [
@@ -35,7 +32,9 @@ class GrassEater {
                 }
             }
         }
-        return found;
+        return super.chooseCell(num);
+
+
     }
 
 
