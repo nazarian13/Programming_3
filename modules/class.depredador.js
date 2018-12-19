@@ -1,3 +1,5 @@
+var LivingCreature = require("./class.livingcreature");
+
 class Depredador {
     constructor(x, y, index) {
         this.x = x;

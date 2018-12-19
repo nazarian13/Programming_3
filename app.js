@@ -1,15 +1,19 @@
 var express = require('express');
-var path = require('path');
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var messages = [];
 
-// Define the port to run on
-app.set('port', process.env.PORT || 3000);
+app.use(express.static("."));
+app.get('/', function (req, res) {
+    res.redirect('index.html');
+});
+server.listen(3000);
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Listen for requests
-
-var Square = require("./module");
-
+var matrix = require("./modules/matrix");
+console.log(matrix);
+io.on('connection', function (socket) {
+    socket.emit("firstMatrix", matrix);
+});
 
 

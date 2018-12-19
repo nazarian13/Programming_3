@@ -1,3 +1,5 @@
+var LivingCreature = require("./class.livingcreature");
+
 class GrassEater extends LivingCreature {
     constructor(x, y, index){
         super(x, y, index);
